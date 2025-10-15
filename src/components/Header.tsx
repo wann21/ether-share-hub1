@@ -1,9 +1,31 @@
-import { Upload, Network, Files, Key, Users, Settings } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Upload, Network, Files, Key, Users, Settings, Wallet, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [walletAddress, setWalletAddress] = useState<string>("");
+
+  useEffect(() => {
+    const savedAddress = localStorage.getItem("walletAddress");
+    if (savedAddress) {
+      setWalletAddress(savedAddress);
+    }
+  }, []);
+
+  const disconnectWallet = () => {
+    localStorage.removeItem("walletAddress");
+    setWalletAddress("");
+    toast.success("Wallet disconnected");
+    navigate("/auth");
+  };
+
+  const formatAddress = (address: string) => {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
 
   const navItems = [
     { path: "/upload", icon: Upload, label: "Upload" },
@@ -43,6 +65,26 @@ const Header = () => {
               </Link>
             );
           })}
+          
+          {walletAddress ? (
+            <div className="flex items-center gap-2 ml-2">
+              <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <Wallet className="w-4 h-4 text-accent" />
+                <span className="text-sm font-mono">{formatAddress(walletAddress)}</span>
+              </div>
+              <Button variant="ghost" size="sm" onClick={disconnectWallet}>
+                <LogOut className="w-4 h-4 mr-2" />
+                Disconnect
+              </Button>
+            </div>
+          ) : (
+            <Button variant="default" size="sm" asChild className="ml-2">
+              <Link to="/auth">
+                <Wallet className="w-4 h-4 mr-2" />
+                Connect Wallet
+              </Link>
+            </Button>
+          )}
         </nav>
       </div>
     </header>
