@@ -7,12 +7,14 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Decentralized network" 
-          className="w-full h-full object-cover opacity-30"
+        <img
+          src={heroImage}
+          alt="Decentralized network"
+          className="w-full h-full object-cover"
+          style={{ opacity: "var(--hero-image-opacity)" }}
         />
-        <div className="absolute inset-0 bg-gradient-glow" />
+        <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
+        <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -20,7 +22,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-glass mb-6">
             <Shield className="w-4 h-4 text-accent" />
-            <span className="text-sm text-muted-foreground">Secure • Private • Decentralized</span>
+            <span className="text-sm text-foreground/80">Secure • Private • Decentralized</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
@@ -29,8 +31,8 @@ const Hero = () => {
             Limits or Censorship
           </h1>
 
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Experience true peer-to-peer file sharing powered by blockchain technology. 
+          <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto">
+            Experience true peer-to-peer file sharing powered by blockchain technology.
             Your files, your control, completely decentralized.
           </p>
 
@@ -83,3 +85,4 @@ const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; titl
 };
 
 export default Hero;
+

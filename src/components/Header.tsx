@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Upload, Network, Files, Key, Users, Settings, Wallet, LogOut } from "lucide-react";
+import { Upload, Network, Files, Key, Users, Settings, Wallet, LogOut, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -8,12 +8,17 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [walletAddress, setWalletAddress] = useState<string>("");
+  const [theme, setTheme] = useState<"dark" | "light">(
+    (localStorage.getItem("theme") as "dark" | "light") || "dark"
+  );
 
   useEffect(() => {
     const savedAddress = localStorage.getItem("walletAddress");
     if (savedAddress) {
       setWalletAddress(savedAddress);
     }
+    // ensure initial theme is applied on first render
+    applyTheme((localStorage.getItem("theme") as "dark" | "light") || "dark");
   }, []);
 
   const disconnectWallet = () => {
@@ -25,6 +30,24 @@ const Header = () => {
 
   const formatAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
+
+  const applyTheme = (t: "dark" | "light") => {
+    const root = document.documentElement;
+    if (t === "light") {
+      root.classList.add("light");
+      root.classList.remove("dark");
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    }
+  };
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    applyTheme(next);
   };
 
   const navItems = [
@@ -66,6 +89,10 @@ const Header = () => {
             );
           })}
           
+          <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </Button>
+
           {walletAddress ? (
             <div className="flex items-center gap-2 ml-2">
               <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">

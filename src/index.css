@@ -52,6 +52,51 @@ All colors MUST be HSL.
     --shadow-primary: 0 10px 40px -10px hsl(263 70% 50% / 0.4);
     --shadow-accent: 0 10px 40px -10px hsl(189 94% 50% / 0.3);
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    /* Hero */
+    --hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85));
+    --hero-image-opacity: 0.25;
+  }
+}
+
+/* Light theme overrides */
+@layer base {
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 189 94% 45%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 263 70% 50%;
+
+    /* Glassmorphism */
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(240, 10%, 3.9%, 0.08);
+
+    /* Hero */
+    --hero-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.92));
+    --hero-image-opacity: 0.12;
   }
 }
 

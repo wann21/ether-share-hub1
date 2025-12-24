@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +15,28 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <script>
+      // Inject a relaxed CSP for local development (localhost/127/192.168.*) to allow unsafe-eval/inline
+      (function () {
+        const host = window.location.hostname;
+        const isLocal =
+          host === "localhost" ||
+          host === "127.0.0.1" ||
+          /^192\.168\./.test(host);
+        if (!isLocal) return;
+        const meta = document.createElement("meta");
+        meta.httpEquiv = "Content-Security-Policy";
+        meta.content = [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+          "style-src 'self' 'unsafe-inline'",
+          "connect-src * blob: data:",
+          "img-src * blob: data:",
+          "font-src 'self' data:"
+        ].join("; ");
+        document.head.appendChild(meta);
+      })();
+    </script>
   </head>
 
   <body>
