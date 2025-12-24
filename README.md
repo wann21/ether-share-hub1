@@ -1,73 +1,135 @@
-# Welcome to my Final Year Project ( Decentralize File Sharing using IPFS and Blockchain)
+📁 Decentralized File Sharing System Using IPFS and Blockchain
 
-## Project info
+Final Year Project (Bachelor of Computer Science – Computer Networks)
 
-**URL**: https://lovable.dev/projects/79f98d6c-75bb-449b-ade8-9bf7d9db5ce6
+📌 Project Overview
 
-## How can I edit this code?
+This project presents a decentralized file sharing system that integrates InterPlanetary File System (IPFS) with blockchain technology to provide secure, tamper-resistant, and distributed file storage.
 
-There are several ways of editing your application.
+Unlike traditional centralized storage systems, this solution eliminates single points of failure by distributing files across a peer-to-peer network while using blockchain to ensure data integrity, access control, and traceability.
 
-**Use Lovable**
+🎯 Problem Statement
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/79f98d6c-75bb-449b-ade8-9bf7d9db5ce6) and start prompting.
+Conventional cloud storage platforms rely on centralized servers, which are vulnerable to:
 
-Changes made via Lovable will be committed automatically to this repo.
+Single point of failure
 
-**Use your preferred IDE**
+Data tampering
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Unauthorized access
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Limited transparency in file ownership and access control
 
-Follow these steps:
+This project addresses these issues by combining IPFS for decentralized storage and blockchain for secure verification and management of file metadata.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🏗️ System Architecture
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+The system operates through the following workflow:
 
-# Step 3: Install the necessary dependencies.
-npm i
+User uploads a file via the web interface
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+File is stored in IPFS and returns a unique Content Identifier (CID)
+
+The CID and file metadata are recorded on the blockchain via a smart contract
+
+File integrity is verified using cryptographic hashing
+
+Authorized users retrieve the file using the stored CID
+
+✨ Key Features
+
+Decentralized file storage using IPFS
+
+Blockchain-based verification of file metadata
+
+Tamper-resistant file integrity using cryptographic hashing
+
+Peer-to-peer architecture without centralized control
+
+Transparent and auditable file access records
+
+🛠️ Technologies Used
+Frontend
+
+React
+
+TypeScript
+
+Vite
+
+Tailwind CSS
+
+shadcn-ui
+
+Backend & Blockchain
+
+IPFS (InterPlanetary File System)
+
+Blockchain Technology
+
+Smart Contracts
+
+Cryptographic Hashing
+
+Peer-to-Peer Networking
+
+⚙️ Installation & Setup
+Prerequisites
+
+Ensure the following are installed on your system:
+
+Node.js
+
+npm
+
+Git
+
+Steps to Run Locally
+# Clone the repository
+git clone https://github.com/wann21/ether-share-hub1.git
+
+# Navigate into the project directory
+cd ether-share-hub1
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application will be available at:
 
-**Use GitHub Codespaces**
+http://localhost:5173
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🚀 Usage
 
-## What technologies are used for this project?
+Access the web application
 
-This project is built with:
+Upload a file to the system
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+File is stored in IPFS and verified via blockchain
 
-## How can I deploy this project?
+Retrieve the file using the generated CID
 
-Simply open [Lovable](https://lovable.dev/projects/79f98d6c-75bb-449b-ade8-9bf7d9db5ce6) and click on Share -> Publish.
+🔮 Future Enhancements
 
-## Can I connect a custom domain to my Lovable project?
+User authentication and role-based access control
 
-Yes, you can!
+File encryption before IPFS storage
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Smart contract optimization for scalability
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Performance evaluation and benchmarking
+
+Integration with decentralized identity (DID) systems
+
+👤 Author
+
+Muhammad Safwan bin Hirman
+Bachelor of Computer Science (Hons.) Computer Networks
+Universiti Teknologi MARA (UiTM)
+
+📜 License
+
+This project is developed for academic purposes (Final Year Project).
