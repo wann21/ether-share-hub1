@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to my Final Year Project ( Decentralize File Sharing using IPFS and Blockchain)
 
 ## Project info
 
